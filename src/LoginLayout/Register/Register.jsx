@@ -2,12 +2,20 @@ import React from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
+const Register = () => {
     return (
         <div>
             <Container className='w-25 mx-auto'>
-                <h3>Please Login</h3>
+                <h3>Please Register</h3>
                 <Form>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type="text" name='name' placeholder="Your Name" required />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Photo URL</Form.Label>
+                        <Form.Control type="text" name='Photo' placeholder="Your Photo" required />
+                    </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" name='email' placeholder="Enter email" required />
@@ -18,14 +26,14 @@ const Login = () => {
                         <Form.Control type="password" name='password' placeholder="Password" required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check me out" />
+                        <Form.Check type="checkbox" name='accept' label="Accept Terms and Condition" />
                     </Form.Group>
                     <Button variant="warning" type="submit">
-                        Login
+                        Register
                     </Button>
                     <br />
                     <Form.Text className="text-secondary">
-                        Don't Have an Account ?<Link to='/register'>Register</Link>
+                        Already Have an Account ?<Link to='/login'>Login</Link>
                     </Form.Text>
                     <Form.Text className="text-success">
 
@@ -39,4 +47,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;

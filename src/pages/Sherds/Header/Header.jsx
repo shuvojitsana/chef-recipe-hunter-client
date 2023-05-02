@@ -22,7 +22,7 @@ const Header = () => {
                     <Nav>
                         <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
 
-                        <Link to='/login'><Button className='bg-warning '>Login</Button></Link>
+                        <Link to='/login'><Button variant="warning">Login</Button></Link>
                     </Nav>
 
                 </Container>
