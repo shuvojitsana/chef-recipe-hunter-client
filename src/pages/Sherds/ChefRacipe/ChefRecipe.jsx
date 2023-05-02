@@ -11,8 +11,8 @@ const ChefRecipe = () => {
     return (
         <div>
 
-            <Container>
-                <div className='text-center'>
+            <Container className='mt-5'>
+                <div className='text-center mt-5'>
                     <h3>Best Food Item</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi molestias aspernatur voluptas eius!</p>
                 </div>
