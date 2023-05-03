@@ -11,6 +11,7 @@ import RecipesDetails from "../pages/RecipesDetails/RecipesDetails";
 
 
 const router = createBrowserRouter([
+    
     {
         path:'/',
         element:<Main></Main>,

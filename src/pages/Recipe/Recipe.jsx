@@ -12,8 +12,8 @@ const Recipe = () => {
         .catch(error => console.log(error))
     }, [])
     return (
-        <div>
-            <h2>All Recipes: {recipes.length}</h2>
+        <div className='mt-5'>
+            <h2 className='text-center'>All Recipes</h2>
 
             {
                 recipes.map(recipe => <CartRecipe

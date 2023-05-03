@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const CartRecipe = ({ recipe }) => {
 
-    const { title, picture, about} = recipe;
+    const { _id,title, picture, about} = recipe;
     return (
         <div>
             <Row xs={1} md={2} lg={3} className="g-4 mt-2">
@@ -15,10 +15,10 @@ const CartRecipe = ({ recipe }) => {
                             <Card.Body>
                                 <Card.Title>{title}</Card.Title>
                                 <Card.Text>
-                                    {about}
+                                    {about.length < 250 ? <> {about}</>: <> {about.slice(0, 250)}...<Link to={`/recipes/${_id}`}>Details More</Link></>}
                                 </Card.Text>
                             </Card.Body>
-                            <Link to="/recipes/:id"><Button>More Details</Button></Link>
+                            <Link to={`/recipes/${_id}`}><Button>More Details</Button></Link>
                         </Card>
                     </Col>
                 {/* ))} */}

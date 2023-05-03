@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link, Outlet } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProvider';
 
 
 
 const Header = () => {
+    const {user} = useContext(AuthContext);
     return (
         <div>
 
@@ -20,9 +22,12 @@ const Header = () => {
                         
                     </Nav>
                     <Nav>
-                        <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
+                        {user && <span><FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>{user.displayName}</span>}
 
-                        <Link to='/login'><Button variant="warning">Login</Button></Link>
+                        { user ?
+                            <Button variant="warning">Logout</Button> :
+                            <Link to='/login'><Button variant="warning">Login</Button></Link>
+                        }
                     </Nav>
 
                 </Container>

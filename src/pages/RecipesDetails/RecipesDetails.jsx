@@ -1,22 +1,17 @@
 import React from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
-import RecipeItem from '../RecipeItem/RecipeItem';
+import { useLoaderData } from 'react-router-dom';
+
 
 const RecipesDetails = () => {
-    const {id} = useParams();
+    // const {id} = useParams();
 
-    const recipesDetails = useLoaderData();
-    console.log(recipesDetails);
+    const recipe = useLoaderData();
+    console.log(recipe);
+    
     return (
         <div>
-            <h2>Recipe Details : {recipesDetails.length}</h2>
-
-            {/* {
-                recipesDetails.find(recipesDetail => <RecipeItem
-                    key={recipesDetail._id}
-                    recipesDetail={recipesDetail}
-                ></RecipeItem>)
-            } */}
+            <h2>Recipe Details :{recipe.length}</h2>
+            
         </div>
     );
 };
