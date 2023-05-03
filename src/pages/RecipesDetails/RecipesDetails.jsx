@@ -7,10 +7,13 @@ const RecipesDetails = () => {
 
     const recipe = useLoaderData();
     console.log(recipe);
+
+    const {picture,title, about} = recipe;
     
     return (
         <div>
             <h2>Recipe Details :{recipe.length}</h2>
+            <p>Recipe{title}</p>
             
         </div>
     );

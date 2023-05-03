@@ -1,13 +1,32 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import app from '../../../firebase/firebase.console';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
     const location = useLocation();
-    console.log(location);
     const from = location.state?.from?.pathname || "/";
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+    const [user, setUser] = useState('');
+
+    const handleGooglSignIn = () =>{
+        signInWithPopup(auth, provider)
+        .then(result =>{
+            const createUser = result.user;
+            setUser(createUser);
+            navigate(from, {replace: true});
+            
+        })
+        .catch(error => {
+            console.error(error)
+        })
+    }
 
     const navigate = useNavigate();
 
@@ -23,11 +42,26 @@ const Login = () => {
             const loggedUser = result.user;
             console.log(loggedUser);
             navigate(from, {replace: true});
+            form.reset();
         })
         .catch(error =>{
             console.log(error)
         })
 
+
+    }
+
+    const handleGithubSignIn = event =>{
+        signInWithPopup(auth, githubProvider)
+        .then(result =>{
+            const createUser = result.user;
+            setUser(createUser);
+            navigate(from, {replace: true});
+            
+        })
+        .catch(error => {
+            console.error(error)
+        })
     }
 
     return (
@@ -58,6 +92,9 @@ const Login = () => {
 
                     </Form.Text>
                 </Form>
+
+                <Button  variant="outline-warning" className='text-success border-white' onClick={handleGooglSignIn}><FaGoogle style={{  fontSize: '2rem', color:"red" }}></FaGoogle> Google Login</Button>
+                <Button  variant="outline-warning" className='text-success border-white' onClick={handleGithubSignIn}><FaGithub style={{ fontSize: '2rem' , }}></FaGithub> Github Login</Button>
             </Container>
         </div>
     );

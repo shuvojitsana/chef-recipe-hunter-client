@@ -5,22 +5,24 @@ const Recipe = () => {
 
     const [recipes, setRecipes] = useState([]);
 
-    useEffect(() =>{
+    useEffect(() => {
         fetch('http://localhost:5000/recipes')
-        .then(res => res.json())
-        .then(data => setRecipes(data))
-        .catch(error => console.log(error))
+            .then(res => res.json())
+            .then(data => setRecipes(data))
+            .catch(error => console.log(error))
     }, [])
     return (
         <div className='mt-5'>
             <h2 className='text-center'>All Recipes</h2>
 
-            {
-                recipes.map(recipe => <CartRecipe
-                    key={recipe._id}
-                    recipe={recipe}
-                ></CartRecipe>)
-            }
+            <>
+                {
+                    recipes.map(recipe => <CartRecipe
+                        key={recipe._id}
+                        recipe={recipe}
+                    ></CartRecipe>)
+                }
+            </>
         </div>
     );
 };
