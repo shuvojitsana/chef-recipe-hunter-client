@@ -7,6 +7,8 @@ import Login from "../LoginLayout/Login/Login/Login";
 import Register from "../LoginLayout/Register/Register";
 import NewsLayout from "../Layout/NewsLayout";
 import RecipesDetails from "../pages/RecipesDetails/RecipesDetails";
+import PrivetRoutes from "./PrivetRoutes";
+import Trems from "../pages/trems/Trems";
 
 
 
@@ -32,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path:"register",
                 element:<Register></Register>
+            },
+            {
+                path:'trems',
+                element:<Trems></Trems>
             }
             
             
@@ -45,7 +51,7 @@ const router = createBrowserRouter([
         children:[
             {
                 path:":id",
-                element:<RecipesDetails></RecipesDetails>,
+                element:<PrivetRoutes><RecipesDetails></RecipesDetails></PrivetRoutes>,
                 loader: ({params}) => fetch(`http://localhost:5000/recipes/${params._id}`)
             }
         ]

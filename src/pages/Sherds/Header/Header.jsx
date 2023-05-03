@@ -7,7 +7,13 @@ import { AuthContext } from '../../../Providers/AuthProvider';
 
 
 const Header = () => {
-    const {user} = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logOut()
+            .then()
+            .catch(error => console.log(error))
+    }
     return (
         <div>
 
@@ -19,20 +25,20 @@ const Header = () => {
                         <Link to="/recipe">Recipe</Link>
                         <Link to="/about">About us</Link>
                         <Link to="/blogs">Blogs</Link>
-                        
+
                     </Nav>
                     <Nav>
                         {user && <span><FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>{user.displayName}</span>}
 
-                        { user ?
-                            <Button variant="warning">Logout</Button> :
+                        {user ?
+                            <Button onClick={handleLogout} variant="warning">Logout</Button> :
                             <Link to='/login'><Button variant="warning">Login</Button></Link>
                         }
                     </Nav>
 
                 </Container>
             </Navbar>
-            
+
         </div>
     );
 };
