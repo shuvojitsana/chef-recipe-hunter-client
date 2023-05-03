@@ -28,8 +28,9 @@ const Footer = () => {
                         </Col>
                     </Row>
                 </Container>
-                <p className='text-center'><small>Copyright of my chef recipe</small></p>
-            </footer> */}
+                
+            </footer>  */}
+            <p className='text-center'><small>Copyright of my chef recipe</small></p>
         </div>
     );
 };
