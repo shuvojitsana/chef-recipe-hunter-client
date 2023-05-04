@@ -14,50 +14,50 @@ import Blogs from "../pages/Blogs/Blogs";
 
 
 const router = createBrowserRouter([
-    
+
     {
-        path:'/',
-        element:<Main></Main>,
-        errorElement:<ErrorPages></ErrorPages>,
-        children:[
+        path: '/',
+        element: <Main></Main>,
+        errorElement: <ErrorPages></ErrorPages>,
+        children: [
             {
-                path:'/',
-                element:<Home></Home>
+                path: '/',
+                element: <Home></Home>
             },
             {
-                path:'/recipe',
-                element:<Recipe></Recipe>
+                path: '/recipe',
+                element: <Recipe></Recipe>
             },
             {
-                path:"/blogs",
-                element:<Blogs></Blogs>
+                path: "/blogs",
+                element: <Blogs></Blogs>
             },
             {
-                path:"login",
-                element:<Login></Login>
+                path: "login",
+                element: <Login></Login>
             },
             {
-                path:"register",
-                element:<Register></Register>
+                path: "register",
+                element: <Register></Register>
             },
             {
-                path:'trems',
-                element:<Trems></Trems>
+                path: 'trems',
+                element: <Trems></Trems>
             }
-            
-            
-            
-            
+
+
+
+
         ]
     },
     {
-        path:'recipes',
-        element:<NewsLayout></NewsLayout>,
-        children:[
+        path: 'recipes',
+        element: <NewsLayout></NewsLayout>,
+        children: [
             {
-                path:":id",
-                element:<PrivetRoutes><RecipesDetails></RecipesDetails></PrivetRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/recipes/${params.id}`)
+                path: ":id",
+                element: <PrivetRoutes><RecipesDetails></RecipesDetails></PrivetRoutes>,
+                loader: ({ params }) => fetch(`https://chef-recipe-hunter-server-shuvojitsana.vercel.app/recipes/${params.id}`)
             }
         ]
     }
