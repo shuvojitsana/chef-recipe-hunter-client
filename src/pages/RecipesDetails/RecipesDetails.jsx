@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaClock, FaRegStar, FaStar, FaEye, FaFileAlt } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 import Rating from 'react-rating';
+import "./RecipesDetails.css"
 
 
 const RecipesDetails = () => {
@@ -51,9 +52,9 @@ const RecipesDetails = () => {
 
                     <Row className="g-4 mt-2">
                         <Col>
-                            <div className='md:d-flex-none sm:d-flex-none lg:d-flx gap-5 justify-content-center align-items-center )'>
+                            <div className='recipe d-flex gap-5 justify-content-center align-items-center )'>
                                 <div>
-                                    <img className='rounded-3' style={{ width: '35rem'  }} src={picture} alt="" />
+                                    <img className='rounded-3 recipe-img'  src={picture} alt="" />
                                 </div>
                                 <div>
                                     <h2 className='mb-0'>{title}</h2>

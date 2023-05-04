@@ -100,8 +100,10 @@ const Login = () => {
 
                 <Button  variant="outline-warning" className='text-success border-white' onClick={handleGooglSignIn}><FaGoogle style={{  fontSize: '2rem', color:"red" }}></FaGoogle> Google Login</Button>
                 <Button  variant="outline-warning" className='text-success border-white' onClick={handleGithubSignIn}><FaGithub style={{ fontSize: '2rem' , }}></FaGithub> Github Login</Button>
+
+                <p><small className='text-danger'>{error}</small></p>
             </Container>
-            <p><small className='text-danger'>{error}</small></p>
+            
         </div>
     );
 };

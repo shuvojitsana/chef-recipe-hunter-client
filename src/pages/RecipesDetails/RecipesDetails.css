@@ -1,0 +1,13 @@
+.recipe-img{
+    width: 30rem;
+}
+
+@media screen and (max-width: 576px) {
+    .recipe{
+        width: 100%;
+        flex-direction: column;
+    }
+    .recipe-img{
+        width: 20rem;
+    }
+}
