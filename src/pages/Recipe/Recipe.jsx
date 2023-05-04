@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CartRecipe from '../Sherds/CardRecipe/CartRecipe';
-import "./Recipe.css"
+
 
 const Recipe = () => {
 

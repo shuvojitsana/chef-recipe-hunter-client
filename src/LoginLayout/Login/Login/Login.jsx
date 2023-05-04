@@ -7,13 +7,14 @@ import app from '../../../firebase/firebase.console';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, upDateProfile } = useContext(AuthContext);
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
     const [user, setUser] = useState('');
+    const [error, setError] = useState('');
 
     const handleGooglSignIn = () =>{
         signInWithPopup(auth, provider)
@@ -25,6 +26,7 @@ const Login = () => {
         })
         .catch(error => {
             console.error(error)
+            setError(error.message)
         })
     }
 
@@ -35,7 +37,6 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
 
         signIn(email, password)
         .then(result => {
@@ -45,7 +46,8 @@ const Login = () => {
             form.reset();
         })
         .catch(error =>{
-            console.log(error)
+            console.error(error)
+            setError(error.message)
         })
 
 
@@ -61,8 +63,11 @@ const Login = () => {
         })
         .catch(error => {
             console.error(error)
+            setError(error.message)
         })
     }
+
+    
 
     return (
         <div>
@@ -96,6 +101,7 @@ const Login = () => {
                 <Button  variant="outline-warning" className='text-success border-white' onClick={handleGooglSignIn}><FaGoogle style={{  fontSize: '2rem', color:"red" }}></FaGoogle> Google Login</Button>
                 <Button  variant="outline-warning" className='text-success border-white' onClick={handleGithubSignIn}><FaGithub style={{ fontSize: '2rem' , }}></FaGithub> Github Login</Button>
             </Container>
+            <p><small className='text-danger'>{error}</small></p>
         </div>
     );
 };
