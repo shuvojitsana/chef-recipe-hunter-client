@@ -25,7 +25,7 @@ const CartRecipe = ({ recipe }) => {
                                     <p className='mb-0'><Rating
                                         placeholderRating={Rating.number}
                                         readonly
-                                        emptySymbol={<FaRegStar></FaRegStar>}
+                                        emptySymbol={<FaRegStar className='text-warning'></FaRegStar>}
                                         placeholderSymbol={<FaStar className=' text-warning'></FaStar>}
                                         fullSymbol={<FaStar></FaStar>}
                                     >
