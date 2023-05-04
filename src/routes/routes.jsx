@@ -9,6 +9,7 @@ import NewsLayout from "../Layout/NewsLayout";
 import RecipesDetails from "../pages/RecipesDetails/RecipesDetails";
 import PrivetRoutes from "./PrivetRoutes";
 import Trems from "../pages/trems/Trems";
+import Blogs from "../pages/Blogs/Blogs";
 
 
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path:'/recipe',
                 element:<Recipe></Recipe>
+            },
+            {
+                path:"/blogs",
+                element:<Blogs></Blogs>
             },
             {
                 path:"login",

@@ -8,3 +8,10 @@
     background-image: url("../../../assets/banner2.jpg");
     
 } */
+/* @media only screen and (min-width:576px){
+    .backgroundImg{
+       flex-direction: column;
+    }
+   
+
+} */

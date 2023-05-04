@@ -3,17 +3,18 @@ import { Col, Container, Image, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaClock, FaRegStar, FaStar, FaEye } from 'react-icons/fa';
 import Rating from 'react-rating';
+import "./CartRecipe.css"
 
 const CartRecipe = ({ recipe }) => {
 
     const { _id, title, picture, about, rating, author, total_view } = recipe;
     return (
         <div>
-           
+
             <Container>
-                <Row className="g-4 mt-2">
+                <Row    className="g-4 mt-2">
                     <Col>
-                        <div className='d-flex gap-5 justify-content-center align-items-center flex-nowrap flex-row-reverse)'>
+                        <div className='d-flex gap-5 justify-content-center align-items-center style'>
                             <div>
                                 <img className='rounded-3' style={{ width: '24rem' }} src={picture} alt="" />
                             </div>
