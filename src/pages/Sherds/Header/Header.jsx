@@ -19,20 +19,19 @@ const Header = () => {
 
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
-                    <Navbar.Brand href="#home" className='text-warning'>Master Chef</Navbar.Brand>
-                    <Nav className="mx-auto">
-                        <Link to='/'>Home</Link>
-                        <Link to="/recipe">Recipe</Link>
-                        <Link to="/about">About us</Link>
-                        <Link to="/blogs">Blogs</Link>
+                    <Navbar.Brand href="#home" className='text-info'>Master Chef</Navbar.Brand>
+                    <Nav className="mx-auto gap-3">
+                        <Link className=' text-decoration-none text-info' to='/'>Home</Link>
+                        <Link className=' text-decoration-none text-info' to="/recipe">Recipe</Link>
+                        <Link className=' text-decoration-none text-info' to="/blogs">Blogs</Link>
 
                     </Nav>
                     <Nav>
                         {user && <span><FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>{user.displayName}</span>}
 
                         {user ?
-                            <Button onClick={handleLogout} variant="warning">Logout</Button> :
-                            <Link to='/login'><Button variant="warning">Login</Button></Link>
+                            <Button onClick={handleLogout} variant="info">Logout</Button> :
+                            <Link to='/login'><Button variant="info">Login</Button></Link>
                         }
                     </Nav>
 

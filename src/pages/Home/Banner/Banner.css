@@ -1,10 +1,10 @@
 .backgroundImg{
-    background-image: url("../../../assets/template.png");
+    background-image: url("../../../assets/banner.png");
     height: 100vh;
     width: 100%;
 
 }
-.backgroundImg:hover{
+/* .backgroundImg:hover{
     background-image: url("../../../assets/banner2.jpg");
     
-}
+} */

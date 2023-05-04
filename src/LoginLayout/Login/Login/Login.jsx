@@ -78,7 +78,7 @@ const Login = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" name='password' placeholder="Password" required />
                     </Form.Group>
-                    <Button variant="warning" type="submit">
+                    <Button variant="info" type="submit">
                         Login
                     </Button>
                     <br />
